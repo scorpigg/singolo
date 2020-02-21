@@ -35,13 +35,16 @@
   overflow: hidden;
 }
 
+.center{
+  width: 1020px;
+  margin: 0 auto;
+}
+
 /* header */
 
 .header{
   min-height: 89px;
-  width: 1020px;
   background-color: #2d303a;
-  margin: 0 auto;
   border-bottom: 6px solid #323746;
 }
 
@@ -130,11 +133,9 @@
 /* slider */
 
 .slider{
-  width: 1020px;
   min-height: 594px;
   background-color: #f06c64;
   border-bottom: 6px solid #ea676b;
-  margin: 0 auto;
 }
 
 .slider .wrapper{
@@ -185,9 +186,7 @@
 
 .services{
   font-family: 'Lato regular' ,'Arial', sans-serif;
-  width: 1020px;
   background-color: #f2f2f2;
-  margin: 0 auto;
   padding-top: 60px;
 }
 
