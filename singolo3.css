@@ -1,0 +1,264 @@
+@font-face {
+  font-family: "Lato regular";
+  src: url("assets/fonts/Lato-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Lato light";
+  src: url("assets/fonts/Lato-Light.ttf");
+}
+
+@font-face {
+  font-family: "Lato Bold";
+  src: url("assets/fonts/Lato-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Lato Black";
+  src: url("assets/fonts/Lato-Black.ttf");
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wrapper{
+  width: 940px;
+  margin: 0 auto;
+}
+
+.visibility-hidden{
+  position: absolute;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.center{
+  width: 1020px;
+  margin: 0 auto;
+}
+
+
+/* quote */
+
+.quote{
+  background-color: #f06c64;
+  padding-top: 61.5px;
+  height: 654px;
+  border-bottom: 6px solid #ea676b;
+  box-sizing: border-box;
+}
+
+.quote__title{
+  font-family: 'Lato Black' ,'Arial', sans-serif;
+  font-size: 29.5px;
+  line-height: 32px;
+  color: #f0d8d9;
+  letter-spacing: 0.1px;
+  margin-bottom: 19.3px;
+}
+
+.quote__description{
+  font-family: 'Lato light' ,'Arial', sans-serif;
+  font-size: 18px;
+  line-height: 30px;
+  color: #f0d8d9;
+  text-align: justify;
+  margin-bottom: 44px;
+}
+
+.layout-2-columns{
+  display: flex;
+}
+
+/* form */
+
+.form{
+  display: flex;
+  flex-direction: column;
+  min-width: 619px;
+}
+
+.quote__form{
+  margin-right: 21px;
+}
+
+.form__name,
+.form__email,
+.form__subject,
+.form__project{
+  height: 38px;
+  font-family: 'Lato regular' ,'Arial', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #f0d8d9;
+  background:#d6564f;
+  border-radius: 5px;
+  border:none;
+  outline: none;
+  margin-bottom: 16px;
+  padding-left: 14.5px;
+}
+
+.form__project{
+  height: 192px;
+  resize: none;
+  padding-top: 10px;
+}
+
+.form__name::placeholder,
+.form__email::placeholder,
+.form__subject::placeholder,
+.form__project::placeholder{
+  color: #f48c8f;
+}
+
+/* contact info */
+
+.contact-info__title{
+  font-family: 'Lato Black', 'Arial', sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  color: #f0d8d9;
+  letter-spacing: -0.1px;
+  margin-bottom: 10px;
+}
+
+.contact-info__description,
+.contact-info__address,
+.contact-info__phone,
+.contact-info__email{
+  font-family: 'Lato regular', 'Arial', sans-serif;
+  font-size: 12px;
+  line-height: 21.5px;
+  color: #f0d8d9;
+  letter-spacing: -0.1px;
+  text-align: justify;
+}
+
+.contact-info__description{
+  margin-bottom: 21.3px;
+}
+
+.contact-info__description_size{
+  line-height: 22.5px;
+  letter-spacing: -0.1px;
+  word-spacing: 0.6px;
+}
+
+/* contacts */
+
+.contact-info__contacts{
+  padding-left: 22.5px;
+}
+
+.contact-info__address,
+.contact-info__phone,
+.contact-info__email{
+  position: relative;
+  letter-spacing: 0;
+}
+
+.contact-info__address img,
+.contact-info__phone img,
+.contact-info__email img{
+  position: absolute;
+  top: 5px;
+  left: -19.5px;
+}
+
+.contact-info__phone img{
+  top: 5px;
+  left: -21.5px;
+}
+
+.contact-info__email img{
+  top: 8.5px;
+  left: -22.5px;
+}
+
+.contact-info__phone a,
+.contact-info__email a{
+  color:#f0d8d9;
+  text-decoration: none;
+}
+
+.contact-info__phone a:hover,
+.contact-info__email a:hover{
+  text-decoration: underline;
+}
+
+.contact-info__phone a:active,
+.contact-info__email a:active{
+  opacity: 0.7;
+}
+
+
+/* footer */
+
+.footer{
+  background: #2d303a;
+}
+
+.footer__container{
+  display: flex;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.footer__copyright{
+  font-family: 'Lato regular', 'Arial', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #666d89;
+  margin-top: 29.5px;
+  margin-left: 2px;
+  letter-spacing: -0.2px
+}
+
+/* socials */
+
+.socials{
+  display: flex;
+}
+
+.footer__socials{
+  margin-top: 22px;
+}
+
+.social-icon{
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #666d89;
+  border-radius: 50%;
+}
+
+.footer__icon{
+  margin-right: 8px;
+}
+
+.social-icon:hover{
+  opacity: .7;
+  cursor: pointer;
+}
+
+.social-icon:active{
+  opacity: .5;
+  cursor: pointer;
+}
+
+.social-icon img{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+.footer__icon:last-child{
+  margin-right: 0;
+}
