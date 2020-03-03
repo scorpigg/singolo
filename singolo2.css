@@ -127,7 +127,9 @@
 /* portfolio images */
 
 .portfolio__images{
+  max-height: 612px;
   margin-left: -16px;
+  overflow: hidden;
 }
 
 .portfolio__images img{
