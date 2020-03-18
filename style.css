@@ -18,6 +18,10 @@
   src: url("assets/fonts/Lato-Black.ttf");
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 *{
   margin: 0;
   list-style: none;
@@ -47,8 +51,16 @@ ul{
 
 /* header */
 
+.header-wrapper{
+  height: 95px;
+}
+
 .header{
+  position: fixed;
   background-color: #2d303a;
+  left:50%;
+  transform: translateX(-50%);
+  z-index: 5;
   border-bottom: 6px solid #323746;
 }
 
@@ -69,6 +81,7 @@ ul{
   color: #fff;
   letter-spacing: -0.5px;
   margin-top: 32px;
+  user-select : none
 }
 
 .logo:hover{
@@ -91,18 +104,19 @@ ul{
 
 /* navigation */
 
-.navigation{
+#navigation{
   display: flex;
   padding: 0;
   margin-top: 39px;
 }
 
-.navigation li{
+#navigation li{
   position: relative;
   margin-left: 31px;
+  user-select : none
 }
 
-.navigation li:not(:first-child)::before{
+#navigation li:not(:first-child)::before{
   position: absolute;
   content: "";
   left: -16.5px;
@@ -124,9 +138,7 @@ ul{
 
 .navigation__link:hover{
   color: #fb8983;
-  padding-bottom: 3px;
-  border-bottom: 2px solid #fb8983;
-  transition: color .2s linear, border-bottom .2s linear, padding-bottom .2s linear;
+  transition: color .2s linear ;
 }
 
 .navigation__link:active{
@@ -134,56 +146,140 @@ ul{
   border-bottom:none;
 }
 
+.navigation__link_active{
+  color: #f06c64;
+  border-bottom:none;
+}
+
 /* slider */
 
 .slider{
-  background-color: #f06c64;
-  border-bottom: 6px solid #ea676b;
-  padding-bottom: 58px;
-}
-
-.slider .wrapper{
+  overflow: hidden;
   position: relative;
+  height: 600px;
 }
 
-
-/* icons */
-.slider__icons{
+/* slider-buttons */
+.slider__buttons{
   display: flex;
   position: absolute;
   top: 273px;
-  left: 0px;
-  right: -2px;
+  left: 41px;
+  right: 39px;
   justify-content: space-between;
   box-sizing: border-box;
 }
 
 .arrow{
   font-size: 43px;
-  color: #ca4549;
+  color: white;
+  opacity: 0.4;
+  cursor: pointer;
+  z-index: 4;
 }
 
 .arrow:hover{
-  color: #fff;
-  opacity: .5;
-  cursor: pointer;
-  transition:0.3s color linear;
+  opacity: .7;
+  transition: 0.3s color linear;
+}
+
+.arrow:active{
+  opacity: .3;
 }
 
 /* iphones */
 
-.slider__iphones{
-  margin-left: 72px;
-  padding-top: 53px;
+.slide{
+  position: absolute;
+  display: flex;
+  width: 1020px;
+  background-color: #f06c64;
+  border-bottom: 6px solid #ea676b;
+  opacity: 0;
+  transition: all .5s linear;
+}
+
+.showed{
+  opacity: 1;
+}
+
+.slider__slide-1{
+  padding-bottom: 54px;
+  z-index: 2;
+}
+
+.slider__slide-2{
+  position: relative;
+}
+
+.slider__slide-2::after{
+  position: absolute;
+  content: "";
+  bottom: -6px;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background-color: #648BF0;
 }
 
 .iphone{
-  vertical-align: top;
+  position: relative;
+  user-select : none;
+}
+
+.vertical-iphone{
+  margin-top: 53px;
+  margin-left: 112px;
 }
 
 .horizontal-iphone{
-  margin-left: 69px;
-  margin-top: 121px;
+  margin-top: 174px;
+  margin-left: 73px;
+}
+
+.horizontal-iphone_black-screen,
+.vertical-iphone_black-screen{
+  opacity: 0;
+  position: absolute;
+  background-color: #000;
+  transition: opacity .3s linear;
+}
+
+.vertical-iphone_black-screen{
+  top: 64.5px;
+  left: 14px;
+  width: 188.5px;
+  height: 334px;
+}
+
+.horizontal-iphone_black-screen{
+  top: 14px;
+  left: 60px;
+  width: 334px;
+  height: 188.5px;
+}
+
+.iphone__btn{
+  position: absolute;
+  cursor: pointer;
+}
+
+.iphone__btn:hover{
+  transform: scale(1.1);
+}
+
+.iphone__btn:active{
+  transform: scale(1);
+}
+
+.vertical-iphone_btn{
+  bottom: 37px;
+  left: 86px;
+}
+
+.horizontal-iphone_btn{
+  top: 86px;
+  left: 8px;
 }
 
 /* services */
@@ -307,6 +403,7 @@ ul{
   border-radius: 4px;
   padding: 2px 6.3px 2.5px 6.3px;
   transition: .3s all linear;
+  user-select : none;
 }
 
 .portfolio__tag{
@@ -321,6 +418,10 @@ ul{
 
 .portfolio__tag:active{
   opacity: .5;
+}
+
+.portfolio__tag_active{
+  outline: 5px solid  #F06C64;
 }
 
 .tag_selected{
@@ -345,16 +446,24 @@ ul{
 /* portfolio images */
 
 .portfolio__images{
+  display: flex;
+  flex-wrap: wrap;
   max-height: 621px;
-  margin-left: -16px;
-  overflow: hidden;
+  margin-left: -19px;
 }
+
 
 .portfolio__images img{
   width: 220px;
   height: 187px;
-  margin-left: 16px;
-  margin-bottom: 16.2px;
+  margin-left: 19.7px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  user-select : none
+}
+
+.portfolio__images img:nth-child(n+13) {
+  display: none;
 }
 
 /* about us */
@@ -467,7 +576,7 @@ ul{
   height: 30px;
   border: 1px solid #666d89;
   border-radius: 50%;
-
+  user-select : none;
 }
 
 .employee__icon{
@@ -535,6 +644,11 @@ ul{
   min-width: 619px;
 }
 
+.form input[type=text]:focus,
+.form textarea:focus{
+  background-color: #b64742;
+}
+
 .quote__form{
   margin-right: 21px;
 }
@@ -560,6 +674,7 @@ ul{
   height: 192px;
   resize: none;
   padding-top: 10px;
+  margin-bottom: 14px;
 }
 
 .form__name::placeholder,
@@ -567,6 +682,92 @@ ul{
 .form__subject::placeholder,
 .form__project::placeholder{
   color: #f48c8f;
+}
+
+.button{
+  width: 136px;
+  height: 38px;
+  font-family: 'Lato Bold', 'Arial', sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: uppercase;
+  color: #886A30;
+  background-color: #FBC65F;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition:background-color .2s linear;
+}
+
+.form__submit:hover{
+  background-color: #ffce6b;
+}
+
+.form__submit:active{
+  background-color: #f6bc47;
+}
+
+/* overlay */
+
+.form__overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 1000;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+/* pop-up */
+.pop-up{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lato regular', 'Arial', sans-serif;
+  background-color: #d6564f;
+  padding: 20px;
+  max-width: 1020px;
+  color: #f2f2f2;
+  border-radius: 10px;
+  z-index: 1001;
+  visibility: hidden;
+  max-height: 600px;
+}
+
+.form__pop-up{
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pop-up__title{
+  align-self: center;
+  font-size: 30px;
+  line-height: 36px;
+  margin-bottom: 10px;
+}
+
+.pop-up__subject{
+  font-size: 25px;
+  line-height: 30px;
+  margin-bottom: 10px;
+  overflow: auto;
+}
+
+.pop-up__project{
+  font-size: 20px;
+  line-height: 24px;
+  margin-bottom: 20px;
+  overflow: auto;
+}
+
+.pop-up__button{
+  min-height: 38px;
+  align-self: center;
 }
 
 /* contact info */
@@ -648,7 +849,6 @@ ul{
 .contact-info__email a:active{
   opacity: 0.7;
 }
-
 
 /* footer */
 

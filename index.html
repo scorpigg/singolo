@@ -5,39 +5,51 @@
     <link rel="stylesheet" href="style.css">
     <link crossorigin='anonymous' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css' integrity='sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay' rel='stylesheet'/>
     <title>Singolo</title>
+    <script src="script.js"></script>
   </head>
   <body>
-    <header class="header center">
-      <h1 class="visibility-hidden">Singolo</h1>
-      <div class="wrapper">
-        <div class="header__container">
-          <a href="#" class="logo">Singolo<span class="logo__star_colored">*</span></a>
-          <nav class="header__navigation">
-            <ul class="navigation">
-              <li><a class="navigation__link" href="#">Home</a></li>
-              <li><a class="navigation__link" href="#">Services</a></li>
-              <li><a class="navigation__link" href="#">Portfolio</a></li>
-              <li><a class="navigation__link" href="#">About</a></li>
-              <li><a class="navigation__link" href="#">Contact</a></li>
-            </ul>
-          </nav>
+    <div class="header-wrapper">
+      <header class="header center">
+        <h1 class="visibility-hidden">Singolo</h1>
+        <div class="wrapper">
+          <div class="header__container">
+            <a href="#" class="logo">Singolo<span class="logo__star_colored">*</span></a>
+            <nav class="header__navigation">
+              <ul id="navigation">
+                <li><a class="navigation__link" href="#">Home</a></li>
+                <li><a class="navigation__link" href="#services">Services</a></li>
+                <li><a class="navigation__link" href="#portfolio">Portfolio</a></li>
+                <li><a class="navigation__link" href="#about">About</a></li>
+                <li><a class="navigation__link" href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </div>
     <main>
       <div class="slider center">
-        <div class="wrapper">
-          <div class="slider__icons">
-            <i class="arrow fas fa-angle-left"></i>
-            <i class="arrow fas fa-angle-right"></i>
+        <div class="slider__buttons">
+          <i class="arrow fas fa-angle-left"></i>
+          <i class="arrow fas fa-angle-right"></i>
+        </div>
+        <div class="slider__slide-1 slide showed">
+          <div class="iphone vertical-iphone">
+            <img src="assets/img/iPhone_Vertical.png" alt="Vertical_iphone">
+            <img class="iphone__btn vertical-iphone_btn" src="./assets/img/iphone_btn.png" alt="iphone_btn">
+            <div class="vertical-iphone_black-screen"></div>
           </div>
-          <div class="slider__iphones">
-            <img class=" iphone vertical-iphone" src="assets/img/iPhone_Vertical.png" alt="Vertical_iphone">
-            <img class="iphone horizontal-iphone" src="assets/img/iPhone_Horizontal.png" alt="Horizontal_iphone">
+          <div class="iphone horizontal-iphone">
+            <img src="assets/img/iPhone_Horizontal.png" alt="Horizontal_iphone">
+            <img class="iphone__btn horizontal-iphone_btn" src="./assets/img/iphone_btn.png" alt="iphone_btn">
+            <div class="horizontal-iphone_black-screen"></div>
           </div>
         </div>
+        <div class="slider__slide-2 slide">
+          <img src="./assets/img/Slider.png" alt="">
+        </div>
       </div>
-      <section class="services center">
+      <section class="services center" id="services">
         <div class="wrapper">
           <h2 class="services__title">Our Services</h2>
           <p class="services__desc">
@@ -89,7 +101,7 @@
           </div>
         </div>
       </section>
-      <section class="portfolio center">
+      <section class="portfolio center" id="portfolio">
         <div class="wrapper">
           <h2 class="portfolio__title">Portfolio</h2>
           <p class="portfolio__description">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
@@ -100,22 +112,22 @@
             <li class="tag portfolio__tag">Artwork</li>
           </ul>
           <div class="portfolio__images">
-            <img src="./assets/img/pic1.jpg" alt="pic1">
-            <img src="./assets/img/pic2.jpg" alt="pic2">
-            <img src="./assets/img/pic3.jpg" alt="pic3">
-            <img src="./assets/img/pic4.jpg" alt="pic4">
-            <img src="./assets/img/pic5.jpg" alt="pic5">
-            <img src="./assets/img/pic6.jpg" alt="pic6">
-            <img src="./assets/img/pic7.jpg" alt="pic7">
-            <img src="./assets/img/pic8.jpg" alt="pic8">
-            <img src="./assets/img/pic9.jpg" alt="pic9">
-            <img src="./assets/img/pic10.jpg" alt="pic10">
-            <img src="./assets/img/pic11.jpg" alt="pic11">
-            <img src="./assets/img/pic12.jpg" alt="pic12">
+            <img class="image" src="./assets/img/pic1.jpg" alt="pic1">
+            <img class="image" src="./assets/img/pic2.jpg" alt="pic2">
+            <img class="image" src="./assets/img/pic3.jpg" alt="pic3">
+            <img class="image" src="./assets/img/pic4.jpg" alt="pic4">
+            <img class="image" src="./assets/img/pic5.jpg" alt="pic5">
+            <img class="image" src="./assets/img/pic6.jpg" alt="pic6">
+            <img class="image" src="./assets/img/pic7.jpg" alt="pic7">
+            <img class="image" src="./assets/img/pic8.jpg" alt="pic8">
+            <img class="image" src="./assets/img/pic9.jpg" alt="pic9">
+            <img class="image" src="./assets/img/pic10.jpg" alt="pic10">
+            <img class="image" src="./assets/img/pic11.jpg" alt="pic11">
+            <img class="image" src="./assets/img/pic12.jpg" alt="pic12">
           </div>
         </div>
       </section>
-      <section class="about-us center">
+      <section class="about-us center" id="about">
         <div class="wrapper">
           <h2 class="about-us__title">About Us</h2>
           <p class="about-us__description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
@@ -180,18 +192,27 @@
           </div>
         </div>
       </section>
-      <section class="quote center">
+      <section class="quote center" id="contact">
         <div class="wrapper">
           <h2 class="quote__title">Get a Quote</h2>
           <p class="quote__description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
           <div class="layout-2-columns">
-            <form class="form quote__form" method="POST">
-              <input type="text" name="name" class="form__name" placeholder="Name (Required)" required>
-              <input type="email" name="email" class="form__email" placeholder="Email (Required)" required>
-              <input type="text" name="subject" class="form__subject" placeholder="Subject">
-              <textarea name="project" class="form__project" placeholder="Describe your project in detail..." ></textarea>
-              <input type="submit" class="visibility-hidden">
-            </form>
+            <div class="form-wrapper">
+              <form class="form quote__form" method="POST">
+                <input type="text" name="name" class="form__name" placeholder="Name (Required)" required>
+                <input type="email" name="email" class="form__email" placeholder="Email (Required)" required>
+                <input type="text" name="subject" class="form__subject" placeholder="Subject">
+                <textarea name="project" class="form__project" placeholder="Describe your project in detail..." ></textarea>
+                <input type="submit" class="form__submit button" value="send">
+              </form>
+              <div class="form__overlay"></div>
+              <div class="form__pop-up pop-up">
+                <h5 class="pop-up__title">Письмо отправлено</h5>
+                <p class="pop-up__subject"></p>
+                <p class="pop-up__project"></p>
+                <button class="pop-up__button button">ok</button>
+              </div>
+            </div>
             <div class="contact-info">
               <h3 class="contact-info__title">Contact Information</h3>
               <p class="contact-info__description">Quisque hendrerit purus dapibus, ornare nibh vitae, viver-ra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus. Morbi at <span class="contact-info__description_size">aliquet turpis, et consequat felis.</span></p>
