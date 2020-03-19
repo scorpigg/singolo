@@ -8,6 +8,35 @@ window.onload = function(){
     event.target.classList.add('navigation__link_active');
   })
 
+  document.addEventListener('scroll', onScroll);
+  function onScroll(event){
+    const curPos = window.scrollY + 95;
+    const sections = document.querySelectorAll('main>section');
+    const links = document.querySelectorAll('#navigation a');
+    const header = document.getElementById('home');
+    const contact = document.getElementById('contact');
+
+    if(header.offsetTop <= curPos && (header.offsetTop + header.offsetHeight) > curPos){
+      links.forEach(a =>{
+        a.classList.remove('navigation__link_active');
+        if(header.getAttribute('id') === a.getAttribute('href').substring(1)){
+          a.classList.add('navigation__link_active');
+        }
+      })
+    }
+
+    sections.forEach(el => {
+      if(el.offsetTop <= curPos && (el.offsetTop + el.offsetHeight) > curPos){
+        links.forEach(a =>{
+          a.classList.remove('navigation__link_active');
+          if(el.getAttribute('id') === a.getAttribute('href').substring(1)){
+            a.classList.add('navigation__link_active');
+          }
+        })
+      }
+    })
+  }
+  
   // iphones black-screens
 
   const verticalIphoneScreen = document.querySelector('.vertical-iphone_black-screen');
