@@ -1,12 +1,19 @@
 window.onload = function(){
-  const navigation = document.getElementById('navigation');
 
   // navigation
 
+    // active link
+
+  const navigation = document.getElementById('navigation');
+
   navigation.addEventListener('click', (event) =>{
-    navigation.querySelectorAll('a').forEach(el => el.classList.remove('navigation__link_active'));
-    event.target.classList.add('navigation__link_active');
+    if(event.target.classList.contains('navigation__link')){
+      navigation.querySelectorAll('a').forEach(el => el.classList.remove('navigation__link_active'));
+      event.target.classList.add('navigation__link_active');
+    }
   })
+
+    // scroll
 
   document.addEventListener('scroll', onScroll);
   function onScroll(event){
@@ -36,11 +43,20 @@ window.onload = function(){
       }
     })
   }
-  
+
   // iphones black-screens
 
   const verticalIphoneScreen = document.querySelector('.vertical-iphone_black-screen');
   const horizontalIphoneScreen = document.querySelector('.horizontal-iphone_black-screen');
+  const verticalBlueIphoneScreen = document.querySelector('.vertical-blue-iphone_black-screen');
+  
+  document.querySelector('.vertical-blue-iphone_btn').addEventListener('click', () => {
+    if(verticalBlueIphoneScreen.style.opacity == 1){
+      verticalBlueIphoneScreen.style.opacity = 0;
+    }else{
+      verticalBlueIphoneScreen.style.opacity = 1;
+    }
+  })
 
   document.querySelector('.vertical-iphone_btn').addEventListener('click', () => {
     if(verticalIphoneScreen.style.opacity == 1){
@@ -60,28 +76,54 @@ window.onload = function(){
 
   // slider
 
-  let sliderPrevBtn = document.querySelector('.fa-angle-left');
-  let sliderNextBtn = document.querySelector('.fa-angle-right');
   let slides = document.querySelectorAll('.slide');
-  let slideIndex = 0;
+  let currentSlide = 0;
+  let isEnabled = true;
 
-  sliderNextBtn.addEventListener('click', function (){
-    slides[slideIndex].classList.remove('showed');
-    slideIndex++;
-    if(slideIndex >= slides.length){
-      slideIndex = 0;
-    }
-    slides[slideIndex].classList.add('showed');
-  })
+  function changeCurrentSlide(n){
+    currentSlide = (n + slides.length) % slides.length;
+  }
 
-  sliderPrevBtn.addEventListener('click', function (){
-    slides[slideIndex].classList.remove('showed');
-    slideIndex--;
-    if(slideIndex < 0){
-      slideIndex = slides.length - 1;
+  function hideSlide(direction){
+    isEnabled = false;
+    slides[currentSlide].classList.add(direction);
+    slides[currentSlide].addEventListener('animationend', function(){
+      this.classList.remove('active', direction);
+    });
+  }
+
+  function showSlide(direction){
+    slides[currentSlide].classList.add('next', direction);
+    slides[currentSlide].addEventListener('animationend', function(){
+      this.classList.remove('next', direction);
+      this.classList.add('active');
+      isEnabled = true;
+    });
+  }
+
+  function nextSlide(n){
+    hideSlide('to-left');
+    changeCurrentSlide(n + 1);
+    showSlide('from-right');
+  }
+
+  function previousSlide(n){
+    hideSlide('to-right');
+    changeCurrentSlide(n - 1);
+    showSlide('from-left');
+  }
+
+  document.querySelector('.fa-angle-left').addEventListener('click', function(){
+    if(isEnabled){
+      previousSlide(currentSlide);
     }
-    slides[slideIndex].classList.add('showed');
-  })
+  });
+
+  document.querySelector('.fa-angle-right').addEventListener('click', function(){
+    if(isEnabled){
+      nextSlide(currentSlide);
+    }
+  });
 
   // portfolio
 
@@ -89,7 +131,6 @@ window.onload = function(){
   let portfolioTags = document.querySelector('.portfolio__tags');
 
   portfolioImages.addEventListener('click', (event) =>{
-    console.log(event);
     if(event.target.classList.contains('image')){
       portfolioImages.querySelectorAll('img').forEach(img => img.classList.remove('portfolio__tag_active'));
       event.target.classList.add('portfolio__tag_active');

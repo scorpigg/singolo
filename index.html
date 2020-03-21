@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="style.css">
     <link crossorigin='anonymous' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css' integrity='sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay' rel='stylesheet'/>
     <title>Singolo</title>
-    <script src="script.js"></script>
   </head>
   <body>
     <header class="header center">
@@ -15,7 +14,7 @@
           <a href="#" class="logo">Singolo<span class="logo__star_colored">*</span></a>
           <nav class="header__navigation">
             <ul id="navigation">
-              <li><a class="navigation__link" href="#home">Home</a></li>
+              <li><a class="navigation__link navigation__link_active" href="#home">Home</a></li>
               <li><a class="navigation__link" href="#services">Services</a></li>
               <li><a class="navigation__link" href="#portfolio">Portfolio</a></li>
               <li><a class="navigation__link" href="#about">About</a></li>
@@ -31,7 +30,7 @@
           <i class="arrow fas fa-angle-left"></i>
           <i class="arrow fas fa-angle-right"></i>
         </div>
-        <div class="slider__slide-1 slide showed">
+        <div class="slider__slide-1 slide active">
           <div class="iphone vertical-iphone">
             <img src="assets/img/iPhone_Vertical.png" alt="Vertical_iphone">
             <img class="iphone__btn vertical-iphone_btn" src="./assets/img/iphone_btn.png" alt="iphone_btn">
@@ -44,7 +43,9 @@
           </div>
         </div>
         <div class="slider__slide-2 slide">
-          <img src="./assets/img/Slider.png" alt="">
+          <img src="./assets/img/Slider.png" alt="vertical-iphone">
+          <img class="iphone__btn vertical-blue-iphone_btn" src="./assets/img/iphone_btn.png" alt="iphone_btn">
+          <div class="vertical-blue-iphone_black-screen"></div>
         </div>
       </section>
       <section class="services center" id="services">
@@ -251,5 +252,6 @@
         </ul>
       </div>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
