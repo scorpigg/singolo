@@ -2,13 +2,48 @@ window.onload = function(){
 
   // navigation
 
-    // active link
+  const navigation = document.querySelector('.navigation');
+  const hamburger = document.querySelector('.hamburger');
+  const navigationOverlay = document.querySelector('.navigation-overlay');
+  const logo = document.querySelector('.logo');
+  let isShown;
 
-  const navigation = document.getElementById('navigation');
+  function showNav(){
+    isShown = true;
+    navigation.classList.add('display-toggle');
+    navigationOverlay.classList.add('display-toggle');
+    hamburger.style.transform = 'rotate(-90deg)';
+    logo.classList.add('logo-to-left');
+  }
+
+  function hideNav () {
+    isShown = false;
+    navigation.classList.remove('display-toggle');
+    navigationOverlay.classList.remove('display-toggle');
+    hamburger.style.transform = 'rotate(0)';
+    logo.classList.remove('logo-to-left');
+  }
+
+  hamburger.addEventListener('click', () =>{
+    if(!isShown){
+      showNav();
+    }else{
+      hideNav();
+    }
+  })
+
+  navigationOverlay.addEventListener('click', () =>{
+    hideNav();
+  })
+
+    // link active
 
   navigation.addEventListener('click', (event) =>{
     if(event.target.classList.contains('navigation__link')){
-      navigation.querySelectorAll('a').forEach(el => el.classList.remove('navigation__link_active'));
+      navigation.querySelectorAll('a').forEach((el) => {
+        el.classList.remove('navigation__link_active');
+        hideNav();
+      });
       event.target.classList.add('navigation__link_active');
     }
   })
@@ -16,21 +51,11 @@ window.onload = function(){
     // scroll
 
   document.addEventListener('scroll', onScroll);
+
   function onScroll(event){
     const curPos = window.scrollY + 95;
-    const sections = document.querySelectorAll('main>section');
-    const links = document.querySelectorAll('#navigation a');
-    const header = document.getElementById('home');
-    const contact = document.getElementById('contact');
-
-    if(header.offsetTop <= curPos && (header.offsetTop + header.offsetHeight) > curPos){
-      links.forEach(a =>{
-        a.classList.remove('navigation__link_active');
-        if(header.getAttribute('id') === a.getAttribute('href').substring(1)){
-          a.classList.add('navigation__link_active');
-        }
-      })
-    }
+    const sections = document.querySelectorAll('body>section');
+    const links = document.querySelectorAll('.navigation a');
 
     sections.forEach(el => {
       if(el.offsetTop <= curPos && (el.offsetTop + el.offsetHeight) > curPos){
@@ -221,5 +246,5 @@ window.onload = function(){
       }
     });
   })
-
+  
 }
